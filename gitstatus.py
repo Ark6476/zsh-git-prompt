@@ -31,7 +31,7 @@ nb_staged = len(staged_files) - nb_U
 staged = str(nb_staged)
 conflicts = str(nb_U)
 changed = str(nb_changed)
-nb_untracked = len(Popen(['git','ls-files','--others','--exclude-standard'],stdout=PIPE).communicate()[0].splitlines())
+nb_untracked = len(Popen(['git','ls-files','--others', '--directory','--exclude-standard', '--no-empty-directory'],stdout=PIPE).communicate()[0].splitlines())
 untracked = str(nb_untracked)
 if not nb_changed and not nb_staged and not nb_U and not nb_untracked:
 	clean = '1'
